@@ -15,7 +15,12 @@ import cors from "cors";
 const port: any = PORT;
 const app: Express = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: `http://${APP_REACT_URL}:${APP_REACT_PORT}`,
+    credentials: true,
+  })
+);
 
 app.use(express.urlencoded());
 app.use(express.json());
